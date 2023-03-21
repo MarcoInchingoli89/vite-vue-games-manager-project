@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-    <footer class="bg_dark fixed-bottom d-flex justify-content-end align-items-end">
+    <footer class="bg_space d-flex justify-content-end align-items-end">
         <div class="text-white text-center pt-1 pb-2 pe-2">
             © 2023 Copyright:
             <a class="text-decoration-none" href="#">Marco Inchingoli</a>
@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables' as *;
 
-.bg_dark {
+.bg_space {
     background-image: url('../../public/img/space-footer.png');
     background-size: auto 250%;
     height: 130px;

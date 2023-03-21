@@ -17,7 +17,7 @@ export default {
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                    <li class="nav-item text-dark">
+                    <li class="nav-item">
                         <router-link class="nav-link active" :to="{ name: 'my-lists' }" aria-current="page">Le mie
                             liste<span class="visually-hidden">(current)</span></router-link>
                     </li>

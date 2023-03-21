@@ -9,7 +9,7 @@ export default {
     <footer class="bg_space d-flex justify-content-end align-items-end">
         <div class="text-white text-center pt-1 pb-2 pe-2">
             © 2023 Copyright:
-            <a class="text-decoration-none" href="#">Marco Inchingoli</a>
+            <a class="text-decoration-none" href="https://github.com/MarcoInchingoli89" target="_blank">Marco Inchingoli</a>
         </div>
     </footer>
 </template>
@@ -25,5 +25,9 @@ export default {
 
 a {
     color: $gm-primary;
+}
+
+a:hover {
+    color: $gm-secondary;
 }
 </style>

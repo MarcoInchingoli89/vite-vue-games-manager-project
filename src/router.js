@@ -18,11 +18,11 @@ const router = createRouter({
             component: DiscoveryView
         },
 
-        {
+        /* {
             path: '/games/:id',
             name: 'single-game',
             component: SingleGameView
-        }
+        } */
 
     ]
 })

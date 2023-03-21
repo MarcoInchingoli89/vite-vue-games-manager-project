@@ -6,13 +6,24 @@ export default {
 </script>
 
 <template>
-    <footer class="bg-dark fixed-bottom">
-        <div class="container"></div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <footer class="bg_dark fixed-bottom d-flex justify-content-end align-items-end">
+        <div class="text-white text-center pt-1 pb-2 pe-2">
             © 2023 Copyright:
-            <a class="color_secondary text-decoration-none" href="#">Marco Inchingoli</a>
+            <a class="text-decoration-none" href="#">Marco Inchingoli</a>
         </div>
     </footer>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../assets/scss/partials/variables' as *;
+
+.bg_dark {
+    background-image: url('../../public/img/space-footer.png');
+    background-size: auto 250%;
+    height: 130px;
+}
+
+a {
+    color: $gm-primary;
+}
+</style>

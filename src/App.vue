@@ -12,6 +12,7 @@ export default {
 
 <template>
     <AppNav />
+    <RouterView />
     <AppFooter />
 </template>
 

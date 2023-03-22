@@ -14,19 +14,19 @@ export default {
                 <!-- card titoli recenti -->
                 <div class="want_play_list mt-4">
                     <div class="card border-0 shadow-lg">
-                        <h5 class="fs-3 text-center">Giochi recenti</h5>
+                        <h5 class="text-center">Giochi recenti</h5>
                     </div>
                 </div>
                 <!-- card titoli popolari -->
                 <div class="playing_list mt-4">
                     <div class="card border-0 shadow-lg">
-                        <h5 class="fs-3 text-center">Giochi popolari</h5>
+                        <h5 class="text-center">Giochi popolari</h5>
                     </div>
                 </div>
                 <!-- card titoli in arrivo -->
                 <div class="played_list mt-4 mb-4">
                     <div class="card border-0 shadow-lg">
-                        <h5 class="fs-3 text-center">Giochi in arrivo</h5>
+                        <h5 class="text-center">Giochi in arrivo</h5>
                     </div>
                 </div>
             </div>

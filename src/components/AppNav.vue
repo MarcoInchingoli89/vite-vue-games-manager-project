@@ -52,12 +52,13 @@ a.router-link-active.router-link-exact-active.nav-link {
 
 .nav-link {
     color: $gm-darker;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-family: $gm-press-start;
 }
 
 a.nav-link.active {
     color: $gm-darker;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .nav-link:hover {

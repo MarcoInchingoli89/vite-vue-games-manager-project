@@ -2,8 +2,8 @@
 @use '../assets/scss/partials/variables' as *;
 // Import all of Bootstrap's CSS
 @import "/node_modules/bootstrap/scss/bootstrap";
-// Importa font 'Satisfy' da Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;1,300&family=Satisfy&display=swap');
+// Importa font 'Press Start 2P' da Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .container-fluid {
     background-color: $gm-secondary; // colore di sfondo app
@@ -23,4 +23,9 @@
 
 .color_dark {
     color: $gm-dark;
+}
+
+h5 {
+    font-family: $gm-press-start;
+    margin-top: 5px;
 }

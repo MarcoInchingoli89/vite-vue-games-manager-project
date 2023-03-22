@@ -8,7 +8,7 @@ export default {
 <template>
     <div class="intro shadow-sm">
         <div class="container">
-            <h1 class="pt-3 text-center">{{ welcome }}</h1>
+            <h2 class="pt-3 text-center">{{ welcome }}</h2>
             <p class="text-center">{{ tutorial }}</p>
         </div>
     </div>
@@ -24,13 +24,13 @@ export default {
     margin-right: 15px; // bordo laterale scoperto destro
 }
 
-h1,
+h2,
 p {
-    font-family: $gm-satisfy
+    font-family: $gm-press-start;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     padding-bottom: 0.5rem;
 }
 </style>

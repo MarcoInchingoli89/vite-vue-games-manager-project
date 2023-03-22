@@ -10,10 +10,8 @@ export default {
             <form class="d-flex p-3" role="search">
                 <input class="form-control me-2" type="search" placeholder="Scrivi qui il nome di un gioco!"
                     aria-label="Search">
-                <div class="pacman_button">
-                    <button class="button d-flex"><img height="20" class="pe-2" src="../../public/img/pacman-icon.png"
-                            alt="">Cerca</button>
-                </div>
+                <button class="pacman_button d-flex"><img height="20" class="pe-2" src="../../public/img/pacman-icon.png"
+                        alt="">Cerca</button>
             </form>
         </div>
     </div>
@@ -37,10 +35,11 @@ export default {
     width: 900px;
 }
 
-.button {
+.pacman_button {
     display: inline-block;
     padding: 8px 30px;
     font-size: 0.8rem;
+    font-family: $gm-press-start;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -53,11 +52,11 @@ export default {
     vertical-align: middle;
 }
 
-.button:hover {
+.pacman_button:hover {
     background-color: $gm-secondary
 }
 
-.button:active {
+.pacman_button:active {
     background-color: $gm-secondary;
     box-shadow: 0 5px #666;
     transform: translateY(4px);

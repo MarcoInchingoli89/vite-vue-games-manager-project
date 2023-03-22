@@ -42,22 +42,7 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables' as *;
 
-.container-fluid {
-    background-color: $gm-secondary;
-    padding-bottom: 10px; // fix del bordo inferiore
-    background-image: url('../../public/img/tetris-bg.png'); // immagine di backround di Tetris
-    background-size: auto 50%;
-    background-position: center;
-    background-repeat: repeat-y;
-}
-
 .card {
     height: 450px;
-    background-color: $gm-primary;
-
-}
-
-.color_dark {
-    color: $gm-dark;
 }
 </style>

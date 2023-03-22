@@ -24,6 +24,12 @@ const router = createRouter({
             component: SingleGameView
         } */
 
+        /* {
+            path: '/search-page',
+            name: 'search-page',
+            component: SearchView
+        } */
+
     ]
 })
 

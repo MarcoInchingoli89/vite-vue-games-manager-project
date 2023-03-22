@@ -1,3 +1,26 @@
+// Importa variabili
+@use '../assets/scss/partials/variables' as *;
 // Import all of Bootstrap's CSS
 @import "/node_modules/bootstrap/scss/bootstrap";
+// Importa font 'Satisfy' da Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;1,300&family=Satisfy&display=swap');
+
+.container-fluid {
+    background-color: $gm-secondary; // colore di sfondo app
+    padding-top: 10px; // fix del bordo superiore
+    padding-bottom: 10px; // fix del bordo inferiore
+    background-image: url('../../public/img/tetris-bg.png'); // immagine di backround di Tetris
+    background-size: auto 50%;
+    background-position: center;
+    background-repeat: repeat-y;
+}
+
+.card {
+    background-color: $gm-primary;
+}
+
+// Utility
+
+.color_dark {
+    color: $gm-dark;
+}

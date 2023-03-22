@@ -1,11 +1,14 @@
 <script>
+import AppSearch from '../components/AppSearch.vue'
 export default {
     name: 'DiscoveryView',
+    components: { AppSearch }
 }
 </script>
 
 <template>
     <div class="container-fluid">
+        <AppSearch />
         <section class="cards_discovery">
             <div class="container color_dark">
                 <!-- card titoli recenti -->

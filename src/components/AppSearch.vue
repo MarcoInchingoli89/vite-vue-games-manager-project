@@ -1,6 +1,12 @@
 <script>
+import { store } from '../store'
 export default {
-    name: 'AppSearch'
+    name: 'AppSearch',
+    data() {
+        return {
+            store
+        }
+    }
 }
 </script>
 
@@ -8,10 +14,11 @@ export default {
     <div class="search_container d-flex justify-content-center">
         <div class="search_bar">
             <form class="d-flex p-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Scrivi qui il nome di un gioco!"
-                    aria-label="Search">
-                <button class="pacman_button d-flex"><img height="20" class="pe-2" src="../../public/img/pacman-icon.png"
-                        alt="">Cerca</button>
+                <!-- con emit passiamo i dati dell'input alla view discovery -->
+                <input class="form-control me-2" v-model="store.searchInput" type="search"
+                    placeholder="Scrivi qui il nome di un gioco!" aria-label="Search">
+                <button @click="$emit('search')" type="button" class="pacman_button d-flex"><img height="20" class="pe-2"
+                        src="../../public/img/pacman-icon.png" alt="">Cerca</button>
             </form>
         </div>
     </div>

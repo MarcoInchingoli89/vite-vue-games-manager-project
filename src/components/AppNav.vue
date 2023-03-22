@@ -6,8 +6,9 @@ export default {
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container">
+            <!-- logo -->
             <router-link class="navbar-brand" :to="{ name: 'my-lists' }"><img width="150"
                     src="../../img/games-keeper-logo.png" alt=""></router-link>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
@@ -16,6 +17,7 @@ export default {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <!-- menu navbar -->
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex flex-column align-items-center">
                     <li class="nav-item">
                         <router-link class="nav-link active" :to="{ name: 'my-lists' }" aria-current="page">Le mie
@@ -35,13 +37,13 @@ export default {
 
 
 .navbar {
-    background-image: url('../../public/img/mario-navbar1.png');
+    background-image: url('../../public/img/mario-navbar.png'); // background super mario
     background-size: auto 235%;
     background-position: center;
 }
 
 li:hover {
-    border-bottom: 2.5px solid $gm-primary;
+    border-bottom: 2px solid $gm-primary;
 }
 
 a.router-link-active.router-link-exact-active.nav-link {

@@ -51,17 +51,19 @@ export default {
 
 <template>
     <div class="container-fluid">
-        <!-- applichiamo la funzione di ricerca al nostro componente AppSearch -->
         <AppSearch @search="searchGames" />
         <section class="cards_discovery">
             <div class="container color_dark">
-                <!-- card titoli recenti -->
-                <div class="want_play_list mt-4">
-                    <div class="card border-0 shadow-lg">
+                <div class="card_container mt-4 d-flex flex-wrap justify-content-center rounded-3">
+                    <div v-for="game in store.games" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
+                        <img v-if="game.cover" :src="`https://${game.cover.url}`" class="card-img-top rounded-top"
+                            alt="Game cover">
+                        <div class="card_body p-0">
+                            <h5 class="card_title text-center">{{ game.name }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </section>
     </div>
 </template>
@@ -69,7 +71,47 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables' as *;
 
-.card {
+.card_container {
     height: 1350px;
+    overflow-y: scroll;
+
+
+    .game_card {
+        width: 150px;
+        background-color: $gm-darker;
+        color: $gm-secondary;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .card_title {
+        font-size: 0.8rem;
+    }
+}
+
+/* Stile generale della scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Impostazioni del colore della scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: $gm-dark;
+    border-radius: 10px;
+}
+
+/* Impostazioni del colore della scrollbar al passaggio del mouse */
+::-webkit-scrollbar-thumb:hover {
+    background-color: $gm-darker;
+}
+
+/* Impostazioni del colore della track della scrollbar */
+::-webkit-scrollbar-track {
+    background-color: $gm-primary;
 }
 </style>

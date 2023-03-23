@@ -13,8 +13,9 @@ export default {
 <template>
     <div class="search_container d-flex justify-content-center">
         <div class="search_bar">
+            <!-- usiamo il metodo prevent per prevenire il refresh della pagina dell'evento submit con la pressione del tasto enter -->
             <form class="d-flex p-3" role="search" @submit.prevent="$emit('search')">
-                <!-- con emit passiamo i dati dell'input alla view discovery -->
+                <!-- con emit passiamo l'input alla view discovery -->
                 <input class="form-control me-2" v-model="store.searchInput" type="search"
                     placeholder="Scrivi qui il nome di un gioco!" aria-label="Search" @keyup.enter="$emit('search')">
                 <button @click="$emit('search')" type="button" class="pacman_button d-flex"><img height="20" class="pe-2"
@@ -49,6 +50,7 @@ input {
     font-size: 0.8rem;
 }
 
+/*#region Pacman Button */
 .pacman_button {
     display: inline-block;
     padding: 8px 30px;
@@ -75,4 +77,6 @@ input {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+/*#endregion Pacman Button */
 </style>

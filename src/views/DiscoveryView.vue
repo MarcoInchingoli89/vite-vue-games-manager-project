@@ -101,8 +101,8 @@ export default {
 
 /* Impostazioni del colore della scrollbar */
 ::-webkit-scrollbar-thumb {
-    background-color: $gm-dark;
     border-radius: 10px;
+    height: 10px;
 }
 
 /* Impostazioni del colore della scrollbar al passaggio del mouse */
@@ -113,5 +113,6 @@ export default {
 /* Impostazioni del colore della track della scrollbar */
 ::-webkit-scrollbar-track {
     background-color: $gm-primary;
+    border-radius: 10px;
 }
 </style>

@@ -26,7 +26,7 @@ export default {
                     'Client-ID': `${this.store.client_id}`,
                     Authorization: `bearer ${this.store.access_token}`,
                 },
-                data: 'fields name, cover.url; search "' + searchInput + '"; limit 30;', // parametri di ricerca
+                data: 'fields name, cover.url; search "' + searchInput + '"; limit 100;', // parametri di ricerca
                 proxy: {
                     host: 'https://cors-anywhere.herokuapp.com/' //server intermediario per aggirare il CORS del server di igdb
                 }
@@ -54,12 +54,18 @@ export default {
         <AppSearch @search="searchGames" />
         <section class="cards_discovery">
             <div class="container color_dark">
-                <div class="card_container mt-4 d-flex flex-wrap justify-content-center rounded-3">
-                    <div v-for="game in store.games" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
-                        <img v-if="game.cover" :src="`https://${game.cover.url}`" class="card-img-top rounded-top"
-                            alt="Game cover">
-                        <div class="card_body p-0">
-                            <h5 class="card_title text-center">{{ game.name }}</h5>
+                <div class="card_container mt-4 rounded-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center flex-wrap">
+                                <div v-for="game in store.games" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
+                                    <img v-if="game.cover" :src="`https://${game.cover.url}`"
+                                        class="card-img-top rounded-top" alt="Game cover">
+                                    <div class="card_body p-0">
+                                        <h5 class="card_title text-center">{{ game.name }}</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

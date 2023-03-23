@@ -20,11 +20,11 @@ export default {
                 <!-- menu navbar -->
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex flex-column align-items-center">
                     <li class="nav-item">
-                        <router-link class="nav-link active" :to="{ name: 'my-lists' }" aria-current="page">Le mie
-                            liste<span class="visually-hidden">(current)</span></router-link>
+                        <router-link class="nav-link active" :to="{ name: 'my-lists' }" aria-current="page">I miei
+                            progressi<span class="visually-hidden">(current)</span></router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'discovery' }">Scopri</router-link>
+                        <router-link class="nav-link" :to="{ name: 'discovery' }">Cerca un gioco</router-link>
                     </li>
                 </ul>
             </div>
@@ -52,13 +52,13 @@ a.router-link-active.router-link-exact-active.nav-link {
 
 .nav-link {
     color: $gm-darker;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: $gm-press-start;
 }
 
 a.nav-link.active {
     color: $gm-darker;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .nav-link:hover {

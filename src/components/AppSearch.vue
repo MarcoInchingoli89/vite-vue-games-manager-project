@@ -18,7 +18,7 @@ export default {
                 <input class="form-control me-2" v-model="store.searchInput" type="search"
                     placeholder="Scrivi qui il nome di un gioco!" aria-label="Search">
                 <button @click="$emit('search')" type="button" class="pacman_button d-flex"><img height="20" class="pe-2"
-                        src="../../public/img/pacman-icon.png" alt="">Cerca</button>
+                        src="../../img/pacman-icon.png" alt="">Cerca</button>
             </form>
         </div>
     </div>
@@ -40,6 +40,13 @@ export default {
 
 .search_bar {
     width: 900px;
+}
+
+input {
+    border: 1px solid $gm-primary;
+    color: $gm-dark;
+    font-family: $gm-press-start;
+    font-size: 0.8rem;
 }
 
 .pacman_button {

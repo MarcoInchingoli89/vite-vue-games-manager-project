@@ -13,10 +13,10 @@ export default {
 <template>
     <div class="search_container d-flex justify-content-center">
         <div class="search_bar">
-            <form class="d-flex p-3" role="search">
+            <form class="d-flex p-3" role="search" @submit.prevent="$emit('search')">
                 <!-- con emit passiamo i dati dell'input alla view discovery -->
                 <input class="form-control me-2" v-model="store.searchInput" type="search"
-                    placeholder="Scrivi qui il nome di un gioco!" aria-label="Search">
+                    placeholder="Scrivi qui il nome di un gioco!" aria-label="Search" @keyup.enter="$emit('search')">
                 <button @click="$emit('search')" type="button" class="pacman_button d-flex"><img height="20" class="pe-2"
                         src="../../img/pacman-icon.png" alt="">Cerca</button>
             </form>

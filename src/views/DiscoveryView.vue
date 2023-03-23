@@ -61,6 +61,8 @@ export default {
                                 <div v-for="game in store.games" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                     <img v-if="game.cover" :src="`https://${game.cover.url}`"
                                         class="card-img-top rounded-top" alt="Game cover">
+                                    <img v-else src="../../public/img/placeholder-cover.jpg"
+                                        class="card-img-top rounded-top placeholder_img" alt="Game cover">
                                     <div class="card_body p-0">
                                         <h5 class="card_title text-center">{{ game.name }}</h5>
                                     </div>
@@ -92,6 +94,10 @@ export default {
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+
+    .placeholder_img {
+        height: 150px;
     }
 
     .card_title {

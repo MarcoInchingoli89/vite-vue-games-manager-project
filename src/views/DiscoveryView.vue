@@ -51,12 +51,13 @@ export default {
                     this.store.loading = false; // loading viene settato su false così da disattivare il caricamento e mostrare i risultati della ricerca
                 })
         },
-        addToGameList(gameId, gameName, gameCover, listId) {
+        // Funzione per aggiungere un gioco ad una lista
+        addToGameList(game, listId) { // passiamo alla funzione il gioco e l'id corrispondente ad una lista
             console.log('Sto cliccando')
-            const list = gameLists.find(list => list.id === listId)
+            const list = gameLists.find(list => list.id === listId) // cerca la lista corrispondente nell'array gameLists
             console.log(list)
             if (list) {
-                list.games.push(gameId, gameName, gameCover)
+                list.games.push(game) // trovata la lista viene pushato il gioco al suo interno
             }
         }
     }
@@ -83,8 +84,7 @@ export default {
                                     class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                     <div class="icons d-flex justify-content-between">
                                         <!-- icona per aggiungere un gioco alla lista 'Da Giocare' -->
-                                        <div class="icon_container ms-1 mt-1 mb-1"
-                                            @click="addToGameList(game.id, game.name, `https://${game.cover.url}`, 1)">
+                                        <div class="icon_container ms-1 mt-1 mb-1" @click="addToGameList(game, 1)">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
                                                 class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd"
@@ -93,8 +93,7 @@ export default {
                                             <span class="label">Clicca per aggiungere a 'Da Giocare'</span>
                                         </div>
                                         <!-- icona per aggiungere un gioco alla lista 'Sto Giocando a' -->
-                                        <div class="icon_container me-1 mt-1 mb-1"
-                                            @click="addToGameList(game.id, game.name, `https://${game.cover.url}`, 2)">
+                                        <div class="icon_container me-1 mt-1 mb-1" @click="addToGameList(game, 2)">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor"
                                                 class="bi bi-controller" viewBox="0 0 16 16">
                                                 <path
@@ -129,97 +128,5 @@ export default {
 
 .card_container {
     height: 1350px;
-    overflow-y: scroll;
-
-
-    .game_card {
-        width: 150px;
-        background-color: $gm-darker;
-        color: $gm-secondary;
-    }
-
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    .placeholder_img {
-        height: 150px;
-    }
-
-    .card_title {
-        font-size: 0.8rem;
-    }
-
-    .icons svg {
-        transition: transform 0.2s ease-in-out;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-
-    /*#region Label Icons */
-    .icon_container {
-        position: relative;
-        display: inline-block;
-    }
-
-    .icon_container .label {
-        visibility: hidden;
-        width: 100px;
-        font-size: 0.5rem;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        top: -35px;
-        left: 50%;
-        margin-left: -50px;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .icon_container:hover .label {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .icon_container:hover {
-        cursor: pointer;
-    }
-
-    /*#endregion Label Icons */
 }
-
-/*#region Scrollbar Style */
-
-// Stile generale della scrollbar
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-// Impostazioni del colore della scrollbar
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    height: 10px;
-}
-
-// Impostazioni del colore della scrollbar al passaggio del mouse
-::-webkit-scrollbar-thumb:hover {
-    background-color: $gm-darker;
-}
-
-// Impostazioni del colore della track della scrollbar
-::-webkit-scrollbar-track {
-    background-color: $gm-primary;
-    border-radius: 10px;
-}
-
-/*#endregion Scrollbar Style */
 </style>

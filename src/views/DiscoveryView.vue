@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 import { store } from '../store'
+import { gameLists } from '../store';
 import AppSearch from '../components/AppSearch.vue'
 export default {
     name: 'DiscoveryView',
@@ -49,6 +50,14 @@ export default {
                 .finally(() => {
                     this.store.loading = false; // loading viene settato su false così da disattivare il caricamento e mostrare i risultati della ricerca
                 })
+        },
+        addToGameList(gameId, gameName, gameCover, listId) {
+            console.log('Sto cliccando')
+            const list = gameLists.find(list => list.id === listId)
+            console.log(list)
+            if (list) {
+                list.games.push(gameId, gameName, gameCover)
+            }
         }
     }
 }
@@ -70,10 +79,12 @@ export default {
                                     <img src="../../public/img/loading-bar.gif" alt="Loading...">
                                 </div>
                                 <!-- altrimenti se è false vengono mostrati a schermo i giochi dall'array games -->
-                                <div v-for="game in store.games" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
+                                <div v-for="game in store.games" :key="game.id"
+                                    class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                     <div class="icons d-flex justify-content-between">
                                         <!-- icona per aggiungere un gioco alla lista 'Da Giocare' -->
-                                        <div class="icon_container ms-1 mt-1 mb-1">
+                                        <div class="icon_container ms-1 mt-1 mb-1"
+                                            @click="addToGameList(game.id, game.name, `https://${game.cover.url}`, 1)">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
                                                 class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd"
@@ -82,7 +93,8 @@ export default {
                                             <span class="label">Clicca per aggiungere a 'Da Giocare'</span>
                                         </div>
                                         <!-- icona per aggiungere un gioco alla lista 'Sto Giocando a' -->
-                                        <div class="icon_container me-1 mt-1 mb-1">
+                                        <div class="icon_container me-1 mt-1 mb-1"
+                                            @click="addToGameList(game.id, game.name, `https://${game.cover.url}`, 2)">
                                             <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor"
                                                 class="bi bi-controller" viewBox="0 0 16 16">
                                                 <path
@@ -175,6 +187,10 @@ export default {
     .icon_container:hover .label {
         visibility: visible;
         opacity: 1;
+    }
+
+    .icon_container:hover {
+        cursor: pointer;
     }
 
     /*#endregion Label Icons */

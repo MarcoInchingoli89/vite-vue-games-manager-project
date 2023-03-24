@@ -11,3 +11,8 @@ export const store = reactive({
     searchInput: '', // input della nostra ricerca,
     loading: false // variabile loading per il caricamento dei giochi dall'api, inizialmente è settata su false per non renderla visibile
 })
+
+export const gameLists = [
+    { id: 1, name: 'Da Giocare', games: [] },
+    { id: 2, name: 'Sto Giocando a', games: [] },
+];

@@ -1,8 +1,14 @@
 <script>
 import AppTutorial from '../components/AppTutorial.vue'
+import { gameLists } from '../store';
 export default {
     name: 'ListsView',
-    components: { AppTutorial }
+    components: { AppTutorial },
+    data() {
+        return {
+            gameLists: gameLists
+        }
+    },
 }
 </script>
 

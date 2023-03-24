@@ -1,15 +1,15 @@
 <script>
 import axios from 'axios'
 import { store } from '../store'
-import { gameLists } from '../store';
+import { gameLists } from '../store'
 import AppSearch from '../components/AppSearch.vue'
 export default {
     name: 'DiscoveryView',
     components: { AppSearch },
     data() {
         return {
-            store
-        }
+            store,
+        };
     },
     methods: {
         // funzione per la ricerca dei giochi
@@ -53,16 +53,19 @@ export default {
         },
         // Funzione per aggiungere un gioco ad una lista
         addToGameList(game, listId) { // passiamo alla funzione il gioco e l'id corrispondente ad una lista
-            console.log('Sto cliccando')
-            const list = gameLists.find(list => list.id === listId) // cerca la lista corrispondente nell'array gameLists
+            console.log('Sto cliccando');
+            const list = gameLists.find(list => list.id === listId); // cerca la lista corrispondente nell'array gameLists
             console.log(list)
             if (list) {
                 const existingGame = list.games.find(game => game === game); // trovata la lista controlliamo se il gioco esiste già al suo interno
                 if (!existingGame) {
-                    list.games.push(game) // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
+                    list.games.push(game); // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
+                    // Salva la lista dei giochi nel localStorage
+                    localStorage.setItem('gameLists', JSON.stringify(this.gameLists));
                 }
             }
-        }
+        },
+
     }
 }
 </script>

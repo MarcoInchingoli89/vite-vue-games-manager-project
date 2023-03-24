@@ -17,3 +17,18 @@ export const gameLists = [
     { id: 1, name: 'Da Giocare', games: [] },
     { id: 2, name: 'Sto Giocando a', games: [] },
 ];
+
+let defaultGameLists = [
+    {
+        id: 1,
+        name: 'Da Giocare',
+        games: []
+    },
+    {
+        id: 2,
+        name: 'Sto Giocando a',
+        games: []
+    },
+];
+
+export { defaultGameLists };

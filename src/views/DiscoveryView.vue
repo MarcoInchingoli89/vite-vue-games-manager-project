@@ -57,7 +57,10 @@ export default {
             const list = gameLists.find(list => list.id === listId) // cerca la lista corrispondente nell'array gameLists
             console.log(list)
             if (list) {
-                list.games.push(game) // trovata la lista viene pushato il gioco al suo interno
+                const existingGame = list.games.find(game => game === game); // trovata la lista controlliamo se il gioco esiste già al suo interno
+                if (!existingGame) {
+                    list.games.push(game) // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
+                }
             }
         }
     }

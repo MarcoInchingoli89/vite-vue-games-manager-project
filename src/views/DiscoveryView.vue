@@ -60,8 +60,8 @@ export default {
                 const existingGame = list.games.find(game => game === game); // trovata la lista controlliamo se il gioco esiste già al suo interno
                 if (!existingGame) {
                     list.games.push(game); // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
-                    // Salva la lista dei giochi nel localStorage
-                    localStorage.setItem('gameLists', JSON.stringify(this.gameLists));
+                    localStorage.setItem('gameLists', JSON.stringify(gameLists));
+                    console.log(localStorage)
                 }
             }
         },

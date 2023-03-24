@@ -1,20 +1,27 @@
 <script>
 import AppNav from './components/AppNav.vue'
 import AppFooter from './components/AppFooter.vue'
-import { defaultGameLists } from './store';
 export default {
+    components: {
+        AppNav,
+        AppFooter,
+    },
     data() {
         return {
-            gameLists: JSON.parse(localStorage.getItem('gameLists')) || [
+            gameLists: [
                 { id: 1, name: 'Da Giocare', games: [] },
                 { id: 2, name: 'Sto Giocando a', games: [] },
             ]
         }
     },
+    created() {
+        // Recupera i dati dal localStorage
+        const gameLists = JSON.parse(localStorage.getItem('gameLists'));
+        console.log(gameLists)
 
-    components: {
-        AppNav,
-        AppFooter,
+        if (gameLists !== null) {
+            this.gameLists = gameLists;
+        }
     },
 }
 </script>

@@ -5,8 +5,15 @@ export default {
     name: 'ListsView',
     components: { AppTutorial },
     data() {
+        const storedLists = JSON.parse(localStorage.getItem('gameLists')) || [];
         return {
-            gameLists: gameLists
+            gameLists: storedLists,
+        }
+    },
+    mounted() {
+        const storedLists = JSON.parse(localStorage.getItem('gameLists'));
+        if (storedLists) {
+            gameLists.splice(0, gameLists.length, ...storedLists);
         }
     },
 }

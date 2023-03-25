@@ -6,14 +6,6 @@ export default {
         AppNav,
         AppFooter,
     },
-    data() {
-        return {
-            gameLists: [
-                { id: 1, name: 'Da Giocare', games: [] },
-                { id: 2, name: 'Sto Giocando a', games: [] },
-            ]
-        }
-    },
     created() {
         // Carica i giochi dal localStorage all'avvio dell'app
         const gameLists = JSON.parse(localStorage.getItem('gameLists'));

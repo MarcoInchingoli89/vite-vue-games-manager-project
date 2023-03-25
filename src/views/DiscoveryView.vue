@@ -60,6 +60,14 @@ export default {
                 const existingGame = list.games.find(game => game === newGame); // trovata la lista controlliamo se il gioco esiste già al suo interno
                 if (!existingGame) {
                     list.games.push(newGame); // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
+                    const completedList = gameLists.find(list => list.name === 'Completati');
+                    if (!completedList) {
+                        gameLists.push({
+                            id: 3,
+                            name: 'Completati',
+                            games: []
+                        });
+                    }
                     localStorage.setItem('gameLists', JSON.stringify(gameLists)); // il gioco aggiunto viene salvato in un local storage per renderlo persistente
                     console.log(localStorage)
                 }

@@ -16,4 +16,5 @@ export const store = reactive({
 export const gameLists = [
     { id: 1, name: 'Da Giocare', games: [] },
     { id: 2, name: 'Sto Giocando a', games: [] },
+    { id: 3, name: 'Completati', games: [] },
 ];

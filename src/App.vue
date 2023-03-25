@@ -15,13 +15,9 @@ export default {
         }
     },
     created() {
-        // Recupera i dati dal localStorage
+        // Carica i giochi dal localStorage all'avvio dell'app
         const gameLists = JSON.parse(localStorage.getItem('gameLists'));
         console.log(gameLists)
-
-        if (gameLists !== null) {
-            this.gameLists = gameLists;
-        }
     },
 }
 </script>

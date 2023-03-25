@@ -5,13 +5,27 @@ export default {
     name: 'ListsView',
     components: { AppTutorial },
     data() {
+        // assegniamo i giochi salvati a gameLists subito all'avvio così da farli comparire al lancio dell'applicazione, se non ci sono nuovi giochi gli assegniamo un array vuoto
         const storedLists = JSON.parse(localStorage.getItem('gameLists')) || [];
         return {
             gameLists: storedLists,
         }
     },
+    methods: {
+        removeGame(game) {
+            console.log('Ho cliccato');
+            const listId = this.gameLists.findIndex(list => list.name === 'Da Giocare');
+            const gameId = this.gameLists[listId].games.findIndex(g => g.id === game.id);
+            if (gameId >= 0) {
+                this.gameLists[listId].games.splice(gameId, 1);
+                localStorage.setItem('gameLists', JSON.stringify(this.gameLists));
+            }
+        }
+    },
     mounted() {
+        // recupero i dati salvati nel local storage e converto il JSON in un array di oggetti con il metodo parse
         const storedLists = JSON.parse(localStorage.getItem('gameLists'));
+        // se i giochi vengono caricati con splice andiamo ad aggiornare la nostra gameLists importata dallo store con i giochi recuperati dal local storage che abbiamo salvato nella costante storedLists
         if (storedLists) {
             gameLists.splice(0, gameLists.length, ...storedLists);
         }
@@ -38,7 +52,7 @@ export default {
                                 <div class="col d-flex justify-content-center flex-wrap">
                                     <!-- iteriamo nella lista specificata per stampare a schermo i singoli giochi -->
                                     <div v-for="game in gameLists.find(list => list.name === 'Da Giocare').games"
-                                        class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
+                                        :key="game.id" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                         <div class="icons d-flex justify-content-between">
                                             <!-- icona per aggiungere un gioco alla lista 'Completati' -->
                                             <div class="icon_container ms-1 mt-1 mb-1">
@@ -50,7 +64,7 @@ export default {
                                                 <span class="label">Clicca per aggiungere a 'Completati'</span>
                                             </div>
                                             <!-- icona per rimuovere il gioco -->
-                                            <div class="icon_container me-1 mt-1 mb-1">
+                                            <div class="icon_container me-1 mt-1 mb-1" @click="removeGame(game)">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
                                                     class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                                     <path

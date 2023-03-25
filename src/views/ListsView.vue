@@ -28,26 +28,24 @@ export default {
                 }
             }
         },
+        // funzione per aggiungere un gioco alla lista Completati
         moveGameToCompleted(completedGame) {
-            const playingList = this.gameLists.find(list => list.name === 'Sto Giocando a');
+            const playingList = this.gameLists.find(list => list.name === 'Sto Giocando a'); // troviamo la lista Sto Giocando a
             console.log(playingList)
             console.log(this.gameLists)
-            const gameId = playingList.games.findIndex(game => game.id === completedGame.id);
+            const gameId = playingList.games.findIndex(game => game.id === completedGame.id); // trova l'id del gioco cliccato
             console.log(gameId)
 
             if (gameId >= 0) {
-                // Rimuovi il gioco dalla lista "Sto Giocando a"
-                const removedGame = playingList.games.splice(gameId, 1)[0];
+                const removedGame = playingList.games.splice(gameId, 1)[0]; // rimuoviamo il gioco dalla lista "Sto Giocando a"
                 console.log(removedGame)
 
-                // Aggiungi il gioco alla lista "Completati"
-                const completedList = this.gameLists.find(list => list.name === 'Completati');
+                const completedList = this.gameLists.find(list => list.name === 'Completati'); // aggiungiamo il gioco alla lista "Completati"
                 console.log(completedList)
                 console.log(this.gameLists)
                 completedList.games.push(removedGame);
 
-                // Aggiorna il localStorage
-                localStorage.setItem('gameLists', JSON.stringify(this.gameLists));
+                localStorage.setItem('gameLists', JSON.stringify(this.gameLists)); // aggiorniamo il local storage
             }
         }
     },
@@ -167,17 +165,18 @@ export default {
                         <h5 class="text-center">Completati</h5>
                         <div class="container mt-3">
                             <div class="row">
-                                <div v-if="completedList && completedList.games.length"
+                                <!-- verifichiamo che esista la lista Completati e se c'è almeno un gioco al suo interno, in quel caso vengono stampati a schermo -->
+                                <div v-if="gameLists.find(list => list.name === 'Completati').games.length"
                                     class="col d-flex justify-content-center flex-wrap">
                                     <!-- iteriamo nella lista specificata per stampare a schermo i singoli giochi -->
-                                    <div v-for="game in completedList" :key="game.id"
+                                    <div v-for="game in gameLists.find(list => list.name === 'Completati').games"
                                         class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                         <div class="icons d-flex justify-content-between">
                                             <!-- icona per rimuovere il gioco -->
-                                            <div class="icon_container me-1 mt-1 mb-1 text-center"
+                                            <div class="icon_container m-auto mt-1 mb-1 d-flex align-items-center justify-content-center"
                                                 @click="removeGame(game)">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
-                                                    class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                                    class="bi bi-trash3-fill align-self-center" viewBox="0 0 16 16">
                                                     <path
                                                         d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                                 </svg>
@@ -194,6 +193,7 @@ export default {
                                         </div>
                                     </div>
                                 </div>
+                                <!-- se non ci sono giochi all'interno della lista Completati stampiamo un messaggio a schermo -->
                                 <div class="d-flex justify-content-center" v-else>
                                     <p>Non ci sono giochi completati al momento!</p>
                                 </div>

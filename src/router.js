@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ListsView from './views/ListsView.vue'
-import DiscoveryView from './views/DiscoveryView.vue'
+import FindGamesView from './views/FindGamesView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,20 +15,8 @@ const router = createRouter({
         {
             path: '/discovery',
             name: 'discovery',
-            component: DiscoveryView
+            component: FindGamesView
         },
-
-        /* {
-            path: '/games/:id',
-            name: 'single-game',
-            component: SingleGameView
-        } */
-
-        /* {
-            path: '/search-page',
-            name: 'search-page',
-            component: SearchView
-        } */
 
     ]
 })

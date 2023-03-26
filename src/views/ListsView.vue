@@ -19,7 +19,8 @@ export default {
             const listToSearch = ['Da Giocare', 'Sto Giocando a', 'Completati']; // costante con i nomi delle due liste in cui cercare il gioco da rimuovere
             console.log(listToSearch);
             let listId, gameId; // dichiarazione delle variabili, servono per memorizzare gli id della lista e gioco specifico
-            for (let i = 0; i < listToSearch.length; i++) { // iteriamo nei nomi delle due liste
+            let gameRemoved = false; // variabile che ci permette di sapere se abbiamo rimosso il gioco
+            for (let i = 0; i < listToSearch.length && !gameRemoved; i++) { // iteriamo nei nomi delle liste e controlliamo se la variabile gameRemoved è falsa
                 listId = this.gameLists.findIndex(list => list.name === listToSearch[i]); // andiamo a cercare l'id della lista corrispondente
                 console.log(listId)
                 gameId = this.gameLists[listId].games.findIndex(game => game.id === removedGame.id); // andiamo a cercare l'id del gioco cliccato
@@ -29,7 +30,7 @@ export default {
                     localStorage.setItem('gameLists', JSON.stringify(this.gameLists)); // aggiorniamo il local storage con le nuove modifiche
                     console.log(localStorage);
                     console.log(this.gameLists)
-                    break; // interrompe il ciclo quando il gioco è stato trovato
+                    gameRemoved = true; // quando la variabile è true significa che il gioco è stato trovato e rimosso, quindi il ciclo si interrompe
                 }
             }
         },

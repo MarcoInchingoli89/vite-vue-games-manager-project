@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { store } from '../store'
 import AppSearch from '../components/AppSearch.vue'
 export default {
-    name: 'DiscoveryView',
+    name: 'FindGamesView',
     components: { AppSearch },
     data() {
         return {

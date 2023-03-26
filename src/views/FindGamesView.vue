@@ -93,7 +93,7 @@ export default {
     <div class="container-fluid">
         <!-- importazione della searchbar, la barra è legata alla funzione di ricerca -->
         <AppSearch @search="searchGames" />
-        <section class="cards_discovery">
+        <section class="cards_findgames">
             <div class="container color_dark">
                 <div class="card_container mt-3 mb-2 rounded-3">
                     <div class="container mt-3">

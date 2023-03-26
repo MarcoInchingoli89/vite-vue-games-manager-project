@@ -11,6 +11,7 @@ export default {
         }
     },
     created() {
+        // carica i giochi dal local storage oppure se è vuoto imposta delle liste di default
         const gameLists = JSON.parse(localStorage.getItem('gameLists'));
 
         if (!gameLists) {

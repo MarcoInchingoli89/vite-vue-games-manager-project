@@ -60,6 +60,7 @@ export default {
                 const existingGame = list.games.find(game => game === newGame); // trovata la lista controlliamo se il gioco esiste già al suo interno
                 if (!existingGame) {
                     list.games.push(newGame); // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
+
                     const completedList = gameLists.find(list => list.name === 'Completati'); // cerchiamo con find la lista Completati e la salviamo in una costante
                     if (!completedList) { // se la lista Completati non esiste, la creiamo e la andiamo a pushare nell'array gameLists
                         gameLists.push({

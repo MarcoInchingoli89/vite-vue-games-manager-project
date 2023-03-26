@@ -6,11 +6,12 @@ export default {
 </script>
 
 <template>
-    <footer class="bg_space d-flex justify-content-end align-items-end">
+    <footer class="bg_space d-flex justify-content-center align-items-end">
         <!-- copyright -->
         <div class="text-white text-center pt-1 pb-2 pe-2">
             © 2023 Copyright:
-            <a class="text-decoration-none" href="https://github.com/MarcoInchingoli89" target="_blank">Marco Inchingoli</a>
+            <a class="text-decoration-none" href="https://github.com/MarcoInchingoli89" target="_blank">Marco
+                Inchingoli</a>
         </div>
     </footer>
 </template>

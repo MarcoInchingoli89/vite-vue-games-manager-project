@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import { store } from '../store'
-import { gameLists } from '../store'
 import AppSearch from '../components/AppSearch.vue'
 export default {
     name: 'DiscoveryView',
@@ -54,12 +54,12 @@ export default {
         // Funzione per aggiungere un gioco ad una lista
         addToGameList(newGame, listId) { // passiamo alla funzione il gioco e l'id corrispondente ad una lista
             console.log('Sto cliccando');
-            let gameLists = JSON.parse(localStorage.getItem('gameLists'));
+            let gameLists = JSON.parse(localStorage.getItem('gameLists')); // creiamo una copia dell'oggetto gameLists
 
             const list = gameLists.find(list => list.id === listId); // cerca la lista corrispondente nell'array gameLists
             console.log(list)
             if (list) {
-                const existingGame = list.games.find(game => game === newGame); // trovata la lista controlliamo se il gioco esiste già al suo interno
+                const existingGame = list.games.find(game => game.id === newGame.id); // trovata la lista controlliamo se il gioco esiste già al suo interno
                 if (!existingGame) {
                     list.games.push(newGame); // se il gioco non esiste viene pushato, altrimenti non facciamo nulla
 
@@ -73,6 +73,14 @@ export default {
                     }
                     localStorage.setItem('gameLists', JSON.stringify(gameLists)); // il gioco aggiunto viene salvato in un local storage per renderlo persistente
                     console.log(localStorage)
+                } else {
+                    // Messaggio di errore
+                    Swal.fire({
+                        title: 'Gioco già inserito',
+                        text: 'Il gioco selezionato è già presente nella lista.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             }
         },

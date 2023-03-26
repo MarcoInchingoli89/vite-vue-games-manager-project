@@ -17,13 +17,18 @@ export default {
         removeGame(removedGame) {
             console.log('Ho cliccato');
             const listToSearch = ['Da Giocare', 'Sto Giocando a', 'Completati']; // costante con i nomi delle due liste in cui cercare il gioco da rimuovere
+            console.log(listToSearch);
             let listId, gameId; // dichiarazione delle variabili, servono per memorizzare gli id della lista e gioco specifico
             for (let i = 0; i < listToSearch.length; i++) { // iteriamo nei nomi delle due liste
                 listId = this.gameLists.findIndex(list => list.name === listToSearch[i]); // andiamo a cercare l'id della lista corrispondente
+                console.log(listId)
                 gameId = this.gameLists[listId].games.findIndex(game => game.id === removedGame.id); // andiamo a cercare l'id del gioco cliccato
+                console.log(gameId)
                 if (gameId >= 0) {
                     this.gameLists[listId].games.splice(gameId, 1); // se troviamo l'id del gioco nella lista rimuoviamo l'elemento con splice
                     localStorage.setItem('gameLists', JSON.stringify(this.gameLists)); // aggiorniamo il local storage con le nuove modifiche
+                    console.log(localStorage);
+                    console.log(this.gameLists)
                     break; // interrompe il ciclo quando il gioco è stato trovato
                 }
             }
@@ -34,17 +39,16 @@ export default {
             console.log(wantPlayList)
             console.log(this.gameLists)
             const gameId = wantPlayList.games.findIndex(game => game.id === playingGame.id); // trova l'id del gioco cliccato
-            console.log(gameId)
 
             if (gameId >= 0) {
                 const removedGame = wantPlayList.games.splice(gameId, 1)[0]; // rimuoviamo il gioco dalla lista "Da Giocare"
                 console.log(removedGame)
 
-                const completedList = this.gameLists.find(list => list.name === 'Sto Giocando a'); // aggiungiamo il gioco alla lista "Sto Giocando a"
-                console.log(completedList)
+                // aggiungiamo il gioco alla lista "Sto Giocando a"
+                const playingList = this.gameLists.find(list => list.name === 'Sto Giocando a');
+                console.log(playingList)
                 console.log(this.gameLists)
-                completedList.games = []; // svuota la lista "Sto Giocando a"
-                completedList.games.push(removedGame);
+                playingList.games.push(removedGame);
 
                 localStorage.setItem('gameLists', JSON.stringify(this.gameLists)); // aggiorniamo il local storage
             }
@@ -61,10 +65,10 @@ export default {
                 const removedGame = playingList.games.splice(gameId, 1)[0]; // rimuoviamo il gioco dalla lista "Sto Giocando a"
                 console.log(removedGame)
 
-                const completedList = this.gameLists.find(list => list.name === 'Completati'); // aggiungiamo il gioco alla lista "Completati"
+                // aggiungiamo il gioco alla lista "Completati"
+                const completedList = this.gameLists.find(list => list.name === 'Completati');
                 console.log(completedList)
                 console.log(this.gameLists)
-                completedList.games = []; // svuota la lista "Completati"
                 completedList.games.push(removedGame);
 
                 localStorage.setItem('gameLists', JSON.stringify(this.gameLists)); // aggiorniamo il local storage
@@ -204,10 +208,10 @@ export default {
                                     class="col d-flex justify-content-center flex-wrap">
                                     <!-- iteriamo nella lista specificata per stampare a schermo i singoli giochi -->
                                     <div v-for="game in gameLists.find(list => list.name === 'Completati').games"
-                                        class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
+                                        :key="game.id" class="game_card border-0 rounded-3 shadow-lg mx-2 my-3">
                                         <div class="icons d-flex justify-content-between">
                                             <!-- icona per rimuovere il gioco -->
-                                            <div class="icon_container m-auto mt-1 mb-1 d-flex align-items-center justify-content-center"
+                                            <div class="icon_container m-auto mt-1 mb-1 d-flex justify-content-center align-items-center"
                                                 @click="removeGame(game)">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
                                                     class="bi bi-trash3-fill align-self-center" viewBox="0 0 16 16">

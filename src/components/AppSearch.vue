@@ -19,7 +19,7 @@ export default {
                 <input class="form-control me-2" v-model="store.searchInput" type="search"
                     placeholder="Scrivi qui il nome di un gioco!" aria-label="Search" @keyup.enter="$emit('search')">
                 <button @click="$emit('search')" type="button" class="pacman_button d-flex"><img height="20" class="pe-2"
-                        src="../../img/pacman-icon.png" alt="">Cerca</button>
+                        src="../../public/img/pacman-icon.png" alt="">Cerca</button>
             </form>
         </div>
     </div>

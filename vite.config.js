@@ -4,5 +4,4 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/vite-vue-games-manager-project/' // percorso repository per il deploy su GitHub Pages
 })

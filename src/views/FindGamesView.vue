@@ -40,8 +40,13 @@ export default {
                     console.log(response);
                     console.log(response.data);
                     console.log(store);
-                    store.games = response.data; // i dati della ricerca vengono salvati in un array
-                    console.log(store.games);
+                    if (response.data.length === 0) { // controlla se la risposta contiene risultati
+                        store.noResults = true; // impostiamo noResults su true solo se non ci sono risultati
+                    } else {
+                        store.games = response.data; // i dati della ricerca vengono salvati in un array
+                        store.noResults = false; // altrimenti viene impostato su false
+                        console.log(store.games);
+                    }
                 })
 
                 .catch(function (error) {
@@ -74,7 +79,7 @@ export default {
                     localStorage.setItem('gameLists', JSON.stringify(gameLists)); // il gioco aggiunto viene salvato in un local storage per renderlo persistente
                     console.log(localStorage)
                 } else {
-                    // Messaggio di errore
+                    // Messaggio di errore duplicati
                     Swal.fire({
                         title: 'Gioco già inserito',
                         text: 'Il gioco selezionato è già presente nella lista.',
@@ -139,6 +144,10 @@ export default {
                                         <h5 class="card_title text-center">{{ game.name }}</h5>
                                     </div>
                                 </div>
+                                <!-- Se non sono stati trovati risultati durante la ricerca mostriamo il messaggio a schermo -->
+                                <div v-if="store.noResults" class="d-flex justify-content-center">
+                                    <p>Il gioco da te cercato non è stato trovato, mi dispiace!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -153,5 +162,9 @@ export default {
 
 .card_container {
     height: 1350px;
+}
+
+p {
+    font-family: $gm-press-start;
 }
 </style>

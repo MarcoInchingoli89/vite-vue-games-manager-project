@@ -200,7 +200,7 @@ export default {
                 </div>
                 <!-- card list titoli completati -->
                 <div class="played_list mt-4 mb-4">
-                    <div class="card_container border-0 shadow-lg">
+                    <div class="card_container mt-3 mb-2 rounded-3">
                         <h5 class="text-center">Completati</h5>
                         <div class="container mt-3">
                             <div class="row">

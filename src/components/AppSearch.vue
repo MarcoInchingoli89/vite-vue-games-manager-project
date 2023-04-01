@@ -33,7 +33,7 @@ export default {
     height: 68px;
     // margini container-fluid fixati
     margin-left: -15px;
-    margin-right: -15px;
+    margin-right: -10px;
     // fixato margine superiore
     margin-top: -10px;
 

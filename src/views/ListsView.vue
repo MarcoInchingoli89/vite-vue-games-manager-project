@@ -199,7 +199,7 @@ export default {
                     </div>
                 </div>
                 <!-- card list titoli completati -->
-                <div class="played_list mt-4 mb-4">
+                <div class="played_list mt-4">
                     <div class="card_container mt-3 mb-2 rounded-3">
                         <h5 class="text-center">Completati</h5>
                         <div class="container mt-3">
@@ -257,4 +257,31 @@ export default {
 p {
     font-family: $gm-press-start;
 }
+
+/*#region Scrollbar Style */
+
+// Stile generale della scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+// Impostazioni del colore della scrollbar
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 10px;
+}
+
+// Impostazioni del colore della scrollbar al passaggio del mouse
+::-webkit-scrollbar-thumb:hover {
+    background-color: $gm-darker;
+}
+
+// Impostazioni del colore della track della scrollbar
+::-webkit-scrollbar-track {
+    background-color: $gm-primary;
+    border-radius: 10px;
+}
+
+/*#endregion Scrollbar Style */
 </style>

@@ -18,6 +18,7 @@
 .card,
 .card_container {
     background-color: $gm-primary;
+    overflow-y: scroll;
 
     .game_card {
         width: 150px;

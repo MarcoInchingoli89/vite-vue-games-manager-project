@@ -171,7 +171,7 @@ export default {
 
 .card_container {
     height: 1350px;
-
+    overflow-y: scroll;
 }
 
 p {

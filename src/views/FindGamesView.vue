@@ -78,6 +78,15 @@ export default {
                     }
                     localStorage.setItem('gameLists', JSON.stringify(gameLists)); // il gioco aggiunto viene salvato in un local storage per renderlo persistente
                     console.log(localStorage)
+
+                    // Messaggio di avvenuta aggiunta
+                    Swal.fire({
+                        title: 'Gioco aggiunto',
+                        text: 'Il gioco è stato aggiunto alla lista correttamente.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+
                 } else {
                     // Messaggio di errore duplicati
                     Swal.fire({
@@ -168,4 +177,31 @@ export default {
 p {
     font-family: $gm-press-start;
 }
+
+/*#region Scrollbar Style */
+
+// Stile generale della scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+// Impostazioni del colore della scrollbar
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 10px;
+}
+
+// Impostazioni del colore della scrollbar al passaggio del mouse
+::-webkit-scrollbar-thumb:hover {
+    background-color: $gm-darker;
+}
+
+// Impostazioni del colore della track della scrollbar
+::-webkit-scrollbar-track {
+    background-color: $gm-primary;
+    border-radius: 10px;
+}
+
+/*#endregion Scrollbar Style */
 </style>

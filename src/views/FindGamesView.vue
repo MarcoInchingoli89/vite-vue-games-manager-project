@@ -155,7 +155,7 @@ export default {
                                 </div>
                                 <!-- Se non sono stati trovati risultati durante la ricerca mostriamo il messaggio a schermo -->
                                 <div v-if="store.noResults" class="d-flex justify-content-center">
-                                    <p>Il gioco da te cercato non è stato trovato, mi dispiace!</p>
+                                    <p>Mi dispiace giocatore, il gioco da te cercato non è stato trovato!</p>
                                 </div>
                             </div>
                         </div>

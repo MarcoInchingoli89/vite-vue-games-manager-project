@@ -16,9 +16,9 @@ export default {
 
         if (!gameLists) {
             const defaultLists = [
-                { name: 'Da Giocare', games: [] },
-                { name: 'Sto Giocando a', games: [] },
-                { name: 'Completati', games: [] }
+                { id: 1, name: 'Da Giocare', games: [] },
+                { id: 2, name: 'Sto Giocando a', games: [] },
+                { id: 3, name: 'Completati', games: [] }
             ];
             localStorage.setItem('gameLists', JSON.stringify(defaultLists));
             this.gameLists = defaultLists;

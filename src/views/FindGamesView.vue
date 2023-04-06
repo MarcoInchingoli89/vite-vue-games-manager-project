@@ -60,7 +60,6 @@ export default {
         // Funzione per aggiungere un gioco ad una lista
         addToGameList(newGame, listId) { // passiamo alla funzione il gioco e l'id corrispondente ad una lista
             console.log('Sto cliccando');
-            /*  let gameLists = JSON.parse(localStorage.getItem('gameLists')); */ // creiamo una copia dell'oggetto gameLists
 
             const list = gameLists.find(list => list.id === listId); // cerca la lista corrispondente nell'array gameLists
             console.log(list)

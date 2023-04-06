@@ -4,6 +4,8 @@ La companion app perfetta per ogni gamer che si rispetti.
 
 Se abbiamo iniziato più giochi, magari su più piattaforme, possiamo tenerne traccia attraverso Games Keeper organizzandoli in delle pratiche liste! Così sapremo sempre cosa stiamo giocando, quali giochi saranno i prossimi da platinare, e quali sono quelli che abbiamo terminato.
 
+Potete provare l'applicazione a questo URL: https://inchingoli-games-keeper.netlify.app/.
+
 Per il database è stato usata l'API IGDB, qui trovate tutta la documentazione: https://api-docs.igdb.com/?javascript#getting-started.
 
 Se l'app non da risultati di ricerca è possibile che l'accesso all'API sia momentaneamente bloccato. Basta andare sul sito https://cors-anywhere.herokuapp.com/corsdemo e cliccare sul pulsante 'Request temporary access to the demo server'.

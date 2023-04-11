@@ -177,6 +177,97 @@ p {
     font-family: $gm-press-start;
 }
 
+/* Media query per dispositivi dai 300px ai 767px */
+@media only screen and (max-width: 300px) {
+
+    /* Imposta larghezza e margine laterale della game card */
+    .game_card {
+        width: calc(50% - 10px);
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Imposta altezza del placeholder immagine */
+    .placeholder_img {
+        height: 100%;
+    }
+
+    /* Imposta font-size del titolo della card */
+    .card_title {
+        font-size: 1rem;
+    }
+}
+
+/* Media query per dispositivi mobili */
+@media only screen and (min-width: 767px) {
+
+    /* Imposta larghezza e margine laterale della game card */
+    .game_card {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    /* Imposta altezza del placeholder immagine */
+    .placeholder_img {
+        height: 100%;
+    }
+
+    /* Imposta font-size del titolo della card */
+    .card_title {
+        font-size: 1rem;
+    }
+}
+
+
+/* Media query per dispositivi di larghezza maggiore di 767px */
+@media only screen and (min-width: 768px) {
+
+    /* Imposta larghezza della game card */
+    .game_card {
+        width: calc(25% - 20px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Imposta altezza del placeholder immagine */
+    .placeholder_img {
+        height: calc(150px * 25 / 100);
+    }
+
+    /* Imposta font-size del titolo della card */
+    .card_title {
+        font-size: 0.8rem;
+    }
+}
+
+/* Media query per dispositivi di larghezza maggiore o uguale a 992px */
+@media only screen and (min-width: 992px) {
+
+    /* Imposta larghezza della game card */
+    .game_card {
+        width: calc(20% - 20px);
+    }
+
+    /* Imposta altezza del placeholder immagine */
+    .placeholder_img {
+        height: calc(150px * 20 / 100);
+    }
+}
+
+/* Media query per dispositivi di larghezza maggiore di 1023px */
+@media only screen and (min-width: 1024px) {
+
+    /* Imposta larghezza della game card */
+    .game_card {
+        width: calc(16.666% - 20px);
+    }
+
+    /* Imposta altezza del placeholder immagine */
+    .placeholder_img {
+        height: calc(150px * 16.666 / 100);
+    }
+}
+
 /*#region Scrollbar Style */
 
 // Stile generale della scrollbar
